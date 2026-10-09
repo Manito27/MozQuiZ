@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="Responda a perguntas sobre Moçambique e acompanhe a sua pontuação.">
+  <title>Quiz Moçambique — Aprenda e ganhe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Quiz Moçambique, início">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>quiz<span class="brand-accent">moz</span></span>
+      </a>
+      <div class="top-note"><span class="live-dot"></span> Conhecimento que vale</div>
+    </header>
+
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> DESAFIO DE CONHECIMENTO</div>
+        <h1 id="hero-title">Quanto sabes<br>sobre <span>Moçambique?</span></h1>
+        <p>Responde às perguntas, testa o teu conhecimento e acompanha os teus ganhos.</p>
+        <div class="reward-pill"><span class="coin-icon" aria-hidden="true">M</span><span><strong>500 MT</strong> por cada resposta certa</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-sun"></div><div class="art-circle art-circle-one"></div><div class="art-circle art-circle-two"></div>
+        <div class="art-card"><span class="art-star">✳</span><span class="art-number">5</span><span class="art-caption">perguntas<br>para vencer</span><span class="art-check">✓</span></div>
+        <div class="art-leaf leaf-one"></div><div class="art-leaf leaf-two"></div>
+      </div>
+    </section>
+
+    <section class="quiz-card" aria-labelledby="quiz-heading">
+      <div class="quiz-topline">
+        <div class="quiz-title-group"><span class="quiz-icon" aria-hidden="true">✦</span><div><h2 id="quiz-heading">O teu desafio</h2><p>Uma resposta de cada vez. Boa sorte!</p></div></div>
+        <div class="earnings"><span>GANHOS</span><strong id="earnings">0 <small>MT</small></strong></div>
+      </div>
+
+      <div class="progress-row"><span id="question-count">PERGUNTA 1 DE 5</span><span id="progress-label">0% concluído</span></div>
+      <div class="progress-track" role="progressbar" aria-label="Progresso do questionário" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span id="progress-bar"></span></div>
+
+      <div class="question-area" id="question-area" aria-live="polite">
+        <div class="timer-row"><span class="timer-label"><span class="timer-icon" aria-hidden="true">◷</span> TEMPO RESTANTE</span><span class="timer" id="timer" aria-label="30 segundos">00:30</span></div>
+        <h3 id="question-text">Qual é a capital de Moçambique?</h3>
+        <div class="answers" id="answers"></div>
+        <div class="quiz-footer"><span class="hint"><span aria-hidden="true">↳</span> Escolhe uma opção para continuar</span><span class="reward-hint">Resposta certa <strong>+500 MT</strong></span></div>
+      </div>
+
+      <div class="result-panel" id="result-panel" hidden>
+        <div class="result-icon" aria-hidden="true">✓</div>
+        <p class="eyebrow">DESAFIO CONCLUÍDO</p>
+        <h3>Excelente participação!</h3>
+        <p class="result-copy">Respondeste às 5 perguntas. O teu total acumulado é:</p>
+        <div class="result-amount" id="result-amount">0 <small>MT</small></div>
+        <button class="primary-button" id="withdraw-button" type="button">Solicitar levantamento <span aria-hidden="true">→</span></button>
+        <p class="registration-note">Para poder levantar, deve registar-se na próxima página.</p>
+        <button class="text-button" id="restart-button" type="button">Jogar novamente</button>
+      </div>
+    </section>
+    <footer class="page-footer"><span>© 2026 QuizMoz</span><span>Feito com curiosidade <span class="heart">♥</span> em Moçambique</span></footer>
+  </main>
+
+  <div class="modal-backdrop" id="withdraw-modal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="close-modal" type="button" aria-label="Fechar">×</button>
+      <div class="modal-icon" aria-hidden="true">↗</div>
+      <p class="eyebrow">LEVANTAMENTO</p>
+      <h2 id="modal-title">O teu prémio</h2>
+      <p class="modal-copy">Saldo do questionário: <strong id="modal-amount">0 MT</strong></p>
+      <form id="withdraw-form">
+        <label for="phone">Número de telefone (M-Pesa ou e-Mola)</label>
+        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+258 84 000 0000" required pattern="[+0-9 ()-]{9,20}">
+        <button class="primary-button" type="submit">Continuar <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="demo-note" id="demo-note">Demonstração: o pedido não será enviado nem processará um pagamento.</p>
+      <div class="form-success" id="form-success" role="status" hidden>Obrigado! Esta demonstração não processa levantamentos reais.</div>
+    </section>
+  </div>
+</body>
+</html>
