@@ -6,7 +6,7 @@ const questions = [
   { question: "Qual é a moeda oficial de Moçambique?", answers: ["Rand", "Metical", "Kwacha"], correct: "Metical" }
 ];
 
-const prizePerAnswer = 500;
+const prizePerAnswer = 50;
 const secondsPerQuestion = 30;
 let currentIndex = 0;
 let earned = 0;
@@ -26,7 +26,6 @@ const questionArea = document.querySelector("#question-area");
 const resultPanel = document.querySelector("#result-panel");
 const resultAmount = document.querySelector("#result-amount");
 const modal = document.querySelector("#withdraw-modal");
-const phoneInput = document.querySelector("#phone");
 
 function renderQuestion() {
   const item = questions[currentIndex];
@@ -106,34 +105,32 @@ function showResults() {
   progressBar.style.width = "100%";
   progressTrack.setAttribute("aria-valuenow", String(completed));
   resultAmount.innerHTML = `${earned.toLocaleString("pt-MZ")} <small>MT</small>`;
-}
-
-function openWithdrawal() {
   document.querySelector("#modal-amount").textContent = `${earned.toLocaleString("pt-MZ")} MT`;
-  document.querySelector("#withdraw-form").hidden = false;
-  document.querySelector("#form-success").hidden = true;
-  document.querySelector("#demo-note").hidden = false;
+  document.querySelector("#withdraw-button").hidden = true;
   modal.hidden = false;
-  phoneInput.focus();
+  document.querySelector("#notice-continue").focus();
 }
 
 document.querySelector("#withdraw-button").addEventListener("click", () => {
   window.location.href = "https://go.aff.nicebetpartners.com/ikwascov";
 });
-document.querySelector("#close-modal").addEventListener("click", () => { modal.hidden = true; });
-modal.addEventListener("click", (event) => { if (event.target === modal) modal.hidden = true; });
-document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !modal.hidden) modal.hidden = true; });
-document.querySelector("#withdraw-form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!phoneInput.checkValidity()) { phoneInput.reportValidity(); return; }
-  document.querySelector("#withdraw-form").hidden = true;
-  document.querySelector("#demo-note").hidden = true;
-  document.querySelector("#form-success").hidden = false;
-});
+function closeRegistrationNotice() {
+  modal.hidden = true;
+  const withdrawButton = document.querySelector("#withdraw-button");
+  withdrawButton.hidden = false;
+  withdrawButton.focus();
+}
+
+document.querySelector("#notice-continue").addEventListener("click", closeRegistrationNotice);
+document.querySelector("#close-modal").addEventListener("click", closeRegistrationNotice);
+modal.addEventListener("click", (event) => { if (event.target === modal) closeRegistrationNotice(); });
+document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !modal.hidden) closeRegistrationNotice(); });
 document.querySelector("#restart-button").addEventListener("click", () => {
   currentIndex = 0;
   earned = 0;
   earnings.innerHTML = `0 <small>MT</small>`;
+  modal.hidden = true;
+  document.querySelector("#withdraw-button").hidden = true;
   resultPanel.hidden = true;
   questionArea.hidden = false;
   renderQuestion();

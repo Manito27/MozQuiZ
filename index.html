@@ -27,7 +27,7 @@
         <div class="eyebrow"><span class="eyebrow-line"></span> DESAFIO DE CONHECIMENTO</div>
         <h1 id="hero-title">Quanto sabes<br>sobre <span>Moçambique?</span></h1>
         <p>Responde às perguntas, testa o teu conhecimento e acompanha os teus ganhos.</p>
-        <div class="reward-pill"><span class="coin-icon" aria-hidden="true">M</span><span><strong>500 MT</strong> por cada resposta certa</span></div>
+        <div class="reward-pill"><span class="coin-icon" aria-hidden="true">M</span><span><strong>50 MT</strong> por cada resposta certa</span></div>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="art-sun"></div><div class="art-circle art-circle-one"></div><div class="art-circle art-circle-two"></div>
@@ -49,7 +49,7 @@
         <div class="timer-row"><span class="timer-label"><span class="timer-icon" aria-hidden="true">◷</span> TEMPO RESTANTE</span><span class="timer" id="timer" aria-label="30 segundos">00:30</span></div>
         <h3 id="question-text">Qual é a capital de Moçambique?</h3>
         <div class="answers" id="answers"></div>
-        <div class="quiz-footer"><span class="hint"><span aria-hidden="true">↳</span> Escolhe uma opção para continuar</span><span class="reward-hint">Resposta certa <strong>+500 MT</strong></span></div>
+        <div class="quiz-footer"><span class="hint"><span aria-hidden="true">↳</span> Escolhe uma opção para continuar</span><span class="reward-hint">Resposta certa <strong>+50 MT</strong></span></div>
       </div>
 
       <div class="result-panel" id="result-panel" hidden>
@@ -58,8 +58,7 @@
         <h3>Excelente participação!</h3>
         <p class="result-copy">Respondeste às 5 perguntas. O teu total acumulado é:</p>
         <div class="result-amount" id="result-amount">0 <small>MT</small></div>
-        <button class="primary-button" id="withdraw-button" type="button">Solicitar levantamento <span aria-hidden="true">→</span></button>
-        <p class="registration-note">Para poder levantar, deve registar-se na próxima página.</p>
+        <button class="primary-button" id="withdraw-button" type="button" hidden>Solicitar levantamento <span aria-hidden="true">→</span></button>
         <button class="text-button" id="restart-button" type="button">Jogar novamente</button>
       </div>
     </section>
@@ -70,16 +69,16 @@
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <button class="modal-close" id="close-modal" type="button" aria-label="Fechar">×</button>
       <div class="modal-icon" aria-hidden="true">↗</div>
-      <p class="eyebrow">LEVANTAMENTO</p>
-      <h2 id="modal-title">O teu prémio</h2>
+      <p class="eyebrow">PRÉMIO DO DESAFIO</p>
+      <h2 id="modal-title">Como levantar o teu prémio</h2>
+      <p class="modal-copy">Para levantar o valor ganho no questionário, deve registar-se na NiceBet. Após concluir o registo, poderá solicitar o levantamento através da plataforma, de acordo com as condições aplicáveis.</p>
+      <aside class="bonus-callout" aria-label="Bónus especial">
+        <p class="bonus-callout-title">🎁 Bónus especial</p>
+        <p>Os primeiros 100 registos poderão ganhar até <strong>500 MT</strong> em bónus, mediante a realização de um depósito mínimo para apostar e o cumprimento das condições da promoção.</p>
+      </aside>
+      <p class="modal-copy modal-call-to-action">🚀 Não perca tempo! Clique no link, registe-se agora e siga as instruções para solicitar o seu prémio!</p>
       <p class="modal-copy">Saldo do questionário: <strong id="modal-amount">0 MT</strong></p>
-      <form id="withdraw-form">
-        <label for="phone">Número de telefone (M-Pesa ou e-Mola)</label>
-        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+258 84 000 0000" required pattern="[+0-9 ()-]{9,20}">
-        <button class="primary-button" type="submit">Continuar <span aria-hidden="true">→</span></button>
-      </form>
-      <p class="demo-note" id="demo-note">Demonstração: o pedido não será enviado nem processará um pagamento.</p>
-      <div class="form-success" id="form-success" role="status" hidden>Obrigado! Esta demonstração não processa levantamentos reais.</div>
+      <button class="primary-button" id="notice-continue" type="button">Continuar <span aria-hidden="true">→</span></button>
     </section>
   </div>
 </body>
